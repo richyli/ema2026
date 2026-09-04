@@ -188,3 +188,21 @@ hr { border: none; border-top: 1px solid #e0e0e0; margin: 2.5rem 0; }
 .modtable { width: 100%; border-collapse: collapse; font-size: .92rem; }
 .modtable th, .modtable td { border-bottom: 1px solid #eee; padding: .4rem .5rem; text-align: left; }
 .sitefoot { margin-top: 2rem; color: #999; font-size: .8rem; }
+
+/* landing page */
+.doors { display: flex; gap: 1.2rem; flex-wrap: wrap; margin: 2rem 0; }
+.door { flex: 1 1 260px; border: 1px solid #e0e0e0; border-radius: 10px; padding: 1.4rem 1.5rem;
+        background: #fcfcfc; text-decoration: none; color: inherit; display: block; }
+.door:hover { background: #f4f8ff; border-color: #9dbde8; }
+.door h2 { margin: 0 0 .4rem; font-size: 1.15rem; }
+.door p { margin: 0; color: #666; font-size: .9rem; line-height: 1.6; }
+.door .tag { display: inline-block; margin-top: .8rem; font-size: .78rem; color: #888; }
+
+/* password gate */
+#gate { max-width: 26rem; margin: 5rem auto; text-align: center; }
+#gate input { padding: .5rem .8rem; font-size: 1.05rem; border: 1px solid #ccc;
+              border-radius: 6px; width: 9rem; text-align: center; letter-spacing: .2em; }
+#gate button { padding: .5rem 1.3rem; font-size: 1rem; background: #0055cc; color: #fff;
+               border: none; border-radius: 6px; cursor: pointer; margin-left: .4rem; }
+#gate .err { color: #c00; font-size: .85rem; margin-top: .8rem; min-height: 1.2em; }
+#gate .hint { color: #999; font-size: .82rem; margin-top: 1.4rem; }

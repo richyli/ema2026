@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M 利害關係人與行動者網絡｜2026 EMA — AI 與媒體</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="gate">
+  <h2 style="font-size:1.05rem;color:#444;margin-bottom:1rem;">教師版 — 請輸入密碼</h2>
+  <input id="pw" type="password" inputmode="numeric" autofocus autocomplete="off">
+  <button id="go">進入</button>
+  <p class="err" id="err"></p>
+  <p class="hint">此頁包含教學說明與講稿，內容為加密儲存，密碼正確才會解開。<br>
+  找課程內容請走 <a href="../s/index.html">學生版入口</a>。</p>
+</div>
+<div id="content" class="container" hidden></div>
+<script>
+(function () {
+  var SALT = "KJt9DK4paGSH8J45W3wgmw==", IV = "CESw6S6fAWTBhGyH", CT = "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", ITER = 250000, KEY = "ema_site_pw";
+  function b64(s) { var r = atob(s), a = new Uint8Array(r.length);
+    for (var i = 0; i < r.length; i++) a[i] = r.charCodeAt(i); return a; }
+  async function unlock(pw, quiet) {
+    try {
+      var base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw),
+        "PBKDF2", false, ["deriveKey"]);
+      var key = await crypto.subtle.deriveKey(
+        { name: "PBKDF2", salt: b64(SALT), iterations: ITER, hash: "SHA-256" },
+        base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+      var buf = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(IV) }, key, b64(CT));
+      var el = document.getElementById("content");
+      el.innerHTML = new TextDecoder().decode(buf);
+      el.hidden = false;
+      document.getElementById("gate").style.display = "none";
+      sessionStorage.setItem(KEY, pw);
+    } catch (e) {
+      sessionStorage.removeItem(KEY);
+      if (!quiet) {
+        document.getElementById("err").textContent = "密碼不對";
+        document.getElementById("pw").value = "";
+        document.getElementById("pw").focus();
+      }
+    }
+  }
+  document.getElementById("go").addEventListener("click", function () {
+    unlock(document.getElementById("pw").value, false);
+  });
+  document.getElementById("pw").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") unlock(this.value, false);
+  });
+  var saved = sessionStorage.getItem(KEY);
+  if (saved) unlock(saved, true);
+})();
+</script>
+</body>
+</html>

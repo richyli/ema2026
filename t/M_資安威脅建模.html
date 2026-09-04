@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M 資安威脅建模｜2026 EMA — AI 與媒體</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="gate">
+  <h2 style="font-size:1.05rem;color:#444;margin-bottom:1rem;">教師版 — 請輸入密碼</h2>
+  <input id="pw" type="password" inputmode="numeric" autofocus autocomplete="off">
+  <button id="go">進入</button>
+  <p class="err" id="err"></p>
+  <p class="hint">此頁包含教學說明與講稿，內容為加密儲存，密碼正確才會解開。<br>
+  找課程內容請走 <a href="../s/index.html">學生版入口</a>。</p>
+</div>
+<div id="content" class="container" hidden></div>
+<script>
+(function () {
+  var SALT = "PqP470EUBju54w9Z6wiiTA==", IV = "Faya72yN69155YH3", CT = "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", ITER = 250000, KEY = "ema_site_pw";
+  function b64(s) { var r = atob(s), a = new Uint8Array(r.length);
+    for (var i = 0; i < r.length; i++) a[i] = r.charCodeAt(i); return a; }
+  async function unlock(pw, quiet) {
+    try {
+      var base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw),
+        "PBKDF2", false, ["deriveKey"]);
+      var key = await crypto.subtle.deriveKey(
+        { name: "PBKDF2", salt: b64(SALT), iterations: ITER, hash: "SHA-256" },
+        base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+      var buf = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(IV) }, key, b64(CT));
+      var el = document.getElementById("content");
+      el.innerHTML = new TextDecoder().decode(buf);
+      el.hidden = false;
+      document.getElementById("gate").style.display = "none";
+      sessionStorage.setItem(KEY, pw);
+    } catch (e) {
+      sessionStorage.removeItem(KEY);
+      if (!quiet) {
+        document.getElementById("err").textContent = "密碼不對";
+        document.getElementById("pw").value = "";
+        document.getElementById("pw").focus();
+      }
+    }
+  }
+  document.getElementById("go").addEventListener("click", function () {
+    unlock(document.getElementById("pw").value, false);
+  });
+  document.getElementById("pw").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") unlock(this.value, false);
+  });
+  var saved = sessionStorage.getItem(KEY);
+  if (saved) unlock(saved, true);
+})();
+</script>
+</body>
+</html>

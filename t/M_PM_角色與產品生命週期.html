@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M PM 角色與產品生命週期｜2026 EMA — AI 與媒體</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="gate">
+  <h2 style="font-size:1.05rem;color:#444;margin-bottom:1rem;">教師版 — 請輸入密碼</h2>
+  <input id="pw" type="password" inputmode="numeric" autofocus autocomplete="off">
+  <button id="go">進入</button>
+  <p class="err" id="err"></p>
+  <p class="hint">此頁包含教學說明與講稿，內容為加密儲存，密碼正確才會解開。<br>
+  找課程內容請走 <a href="../s/index.html">學生版入口</a>。</p>
+</div>
+<div id="content" class="container" hidden></div>
+<script>
+(function () {
+  var SALT = "H3ScSzNq/KTfDNa2pYfd1w==", IV = "AqEvlvs5j/61oVe/", CT = "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", ITER = 250000, KEY = "ema_site_pw";
+  function b64(s) { var r = atob(s), a = new Uint8Array(r.length);
+    for (var i = 0; i < r.length; i++) a[i] = r.charCodeAt(i); return a; }
+  async function unlock(pw, quiet) {
+    try {
+      var base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw),
+        "PBKDF2", false, ["deriveKey"]);
+      var key = await crypto.subtle.deriveKey(
+        { name: "PBKDF2", salt: b64(SALT), iterations: ITER, hash: "SHA-256" },
+        base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+      var buf = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(IV) }, key, b64(CT));
+      var el = document.getElementById("content");
+      el.innerHTML = new TextDecoder().decode(buf);
+      el.hidden = false;
+      document.getElementById("gate").style.display = "none";
+      sessionStorage.setItem(KEY, pw);
+    } catch (e) {
+      sessionStorage.removeItem(KEY);
+      if (!quiet) {
+        document.getElementById("err").textContent = "密碼不對";
+        document.getElementById("pw").value = "";
+        document.getElementById("pw").focus();
+      }
+    }
+  }
+  document.getElementById("go").addEventListener("click", function () {
+    unlock(document.getElementById("pw").value, false);
+  });
+  document.getElementById("pw").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") unlock(this.value, false);
+  });
+  var saved = sessionStorage.getItem(KEY);
+  if (saved) unlock(saved, true);
+})();
+</script>
+</body>
+</html>
