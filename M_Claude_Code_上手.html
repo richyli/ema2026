@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M Claude Code 上手｜2026 EMA — AI 與媒體</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<nav class="topnav"><a href="index.html">課程首頁</a><a href="modules.html">模組總覽</a></nav><div class="course-hero"><h1>M Claude Code 上手</h1><p class="sub">2026 EMA — AI 與媒體</p></div><p class="badges"><span class="badge">第 3 週</span><span class="badge">✋ 實作</span><span class="badge">45′</span><span class="badge seed">草稿</span><span class="badge">跨課共用：EMA、AICreativity、GCIT、Product、WebAnalytics、InfoViz</span></p><p><strong>45 分鐘完整模組</strong>（practice）。跨課共用。</p>
+<h4>🎯 學習目標（學完你能）</h4>
+<p>每條目標都是「<strong>一項能力 → 能解釋一個真實問題</strong>」。學這個不是為了學寫程式，是為了讓一個會動手做事的 agent 第一次在你電腦上跑起來、處理你真的在做的工作。目標由淺入深排列（Bloom 認知階層由低到高）。</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Bloom 層級</th>
+<th>你會的能力</th>
+<th>讓你能解釋的真實問題</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>理解</td>
+<td><strong>區分</strong> agent／chatbot／workflow，說明 Claude Code 為何屬 agent</td>
+<td>為什麼說 Claude Code 不是「比較聰明的聊天框」？因為它會讀你的檔、寫檔、跑指令，還會臨場判斷。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>應用</td>
+<td><strong>操作</strong>完成安裝並下一個結構清楚的指令，用三段式（背景／任務／格式）跑一段真實工作</td>
+<td>為什麼同一個指令，我跑出來爛、別人跑出來好？<strong>本質金句：結果好不好取決於你怎麼問——你負責下指令＋驗收，它負責執行。</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>分析</td>
+<td><strong>判斷</strong>在一次任務中，哪一步該放行讓它自己跑、哪一步該按煞車自己接手</td>
+<td><strong>不會寫程式的人到底能不能用？</strong>——拆解一次真實任務，你會發現關鍵不是技術，是「何時放手、何時把關」的判斷力。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>對齊說明：目標 1 由「15′b agent vs chatbot vs workflow 對照」帶出；目標 2 由「15′a 安裝＋第一個指令」與「15′c 動手」帶出、由小作業「記錄它對／錯各一處」檢核；目標 3（分析層）由「15′c 何時放手何時接手」與活動 A 帶出，由配對分享「指出需要你介入修正的一處」與小作業「下次我會怎麼改提示」檢核，難度對得上分析層。</p>
+</blockquote>
+<ul>
+<li><strong>核心</strong>：安裝設定；skill／hook／MCP 是什麼；agent vs chatbot vs workflow。</li>
+<li><strong>15′ a</strong>：安裝與第一個指令。</li>
+<li><strong>15′ b</strong>：skill／hook／MCP 概念 + 示範。</li>
+<li><strong>15′ c</strong>：動手——用真實工作（逐字稿／報告）跑一次。</li>
+</ul>
+<blockquote>
+<p>註：上述 lecture/demo 約 35′，其餘 10′ 留給下方分享與反思（一堂 45′ 的配置）。</p>
+</blockquote>
+<h4>💬 討論／分享／反思（10′）</h4>
+<ul>
+<li><strong>配對分享（5′）</strong>：兩人互看剛跑出來的結果，各指出「AI 幫上忙的一處」與「需要你介入修正的一處」。</li>
+<li><strong>全班收斂（3′）</strong>：彙整「Claude Code 最容易出錯的地方」前三名，貼上班級工具箱。</li>
+<li>
+<p><strong>反思（2′，寫下）</strong>：「如果這是我每週的真實工作，我會不會固定用它？阻礙我的是介面、信任、還是不知道它能做什麼？」</p>
+</li>
+<li>
+<p><strong>小作業</strong>：把一段真實工作用 Claude Code 處理，記錄它對／錯各一處，並寫一句「下次我會怎麼改提示」。</p>
+</li>
+</ul>
+<h3>📚 詳細上課內容</h3>
+<blockquote>
+<p>本模組目標：讓<strong>零基礎、不會寫程式</strong>的學生，在 45 分鐘內第一次把 Claude Code 跑起來，並建立正確心智模型——它是一個你要會下指令、會驗收的 agent，不是全自動黑盒子。老師看著下面要點就能講。</p>
+</blockquote>
+<h4>① 逐段講稿要點</h4>
+<h5>15′a — 安裝與第一個指令（要說什麼、容易卡在哪）</h5>
+<p><strong>開場定錨（1′）</strong>
+- 一句話框住今天：「Claude Code 不是聊天機器人，是一個會幫你『動手做事』的 agent——它會讀你的檔案、寫檔案、跑指令。今天我們的目標只有一個：<strong>讓它在你電腦上動起來，跑完一件你真的在做的工作。</strong>」
+- 預告心法：「全程記住一句話——你負責<strong>下指令</strong>跟<strong>驗收</strong>，它負責執行。等一下做完，我會請你各找出『它幫上忙一處』跟『它出錯一處』。」</p>
+<p><strong>安裝步驟邊講邊讓學生跟（8′）</strong>
+- 講授節奏：老師投影逐步示範，學生同步操作，每一步停下來「等大家螢幕都到這」。
+- 步驟順序（板書同步列）：
+  1. 確認有 Node.js（或對應 runtime）→ 終端機輸入版本確認指令。<strong>卡點</strong>：很多人沒裝、或裝了但 PATH 沒設，終端機說「找不到指令」。轉場句：「看到 command not found 不要慌，這是 99% 新手第一個關卡，代表電腦還不認得這個字。」
+  2. 安裝 Claude Code CLI。<strong>卡點</strong>：權限不足（Mac 要不要 sudo、Windows 要不要系統管理員）；公司／學校網路擋下載。
+  3. 第一次啟動要登入／貼 API 或帳號授權。<strong>卡點</strong>：瀏覽器跳出授權頁沒按到、或貼錯金鑰。提醒：「金鑰像鑰匙，不要貼到群組裡。」
+  4. <code>cd</code> 到一個資料夾再啟動——<strong>強調</strong>：「Claude Code 是『在某個資料夾裡工作』的，你站在哪個資料夾，它就能看到那個資料夾的檔案。這點等一下很關鍵。」
+- 帶領原則：明白宣布「<strong>這一段一定有人卡住，卡住是正常的，舉手我們就地解</strong>」，降低零基礎學生的焦慮。</p>
+<p><strong>第一個指令（6′）</strong>
+- 讓全班一起下<strong>同一個無風險指令</strong>當暖身，例如請它「用一句話說明這個資料夾裡有什麼」或「幫我把這段話改寫得更正式」。
+- 講解三件學生第一次一定會驚訝的事：
+  1. 它會<strong>先講它打算做什麼</strong>，再動手——這就是你「驗收」的第一個介面。
+  2. 它會<strong>問你要不要授權</strong>它讀／寫檔案——強調「這個確認鍵就是人類的煞車，不要無腦一直按 yes」。
+  3. 同一個指令、不同人結果不一樣——帶到下一段的伏筆：「結果好不好，取決於你怎麼問，這叫 prompt engineering，等一下講。」
+- 轉場到 15′b：「現在它動起來了。但你大概覺得它就是個比較聰明的聊天框。接下來我要把三個會讓它『升級』的東西講清楚：skill、MCP、hook。」</p>
+<h5>15′b — skill／hook／MCP 概念（用比喻講清楚）</h5>
+<p><strong>先立心智模型（3′）</strong>：agent vs chatbot vs workflow（搭配對照投影片）
+- chatbot：你問一句、它答一句，<strong>不會動你的檔案</strong>。
+- workflow：固定流程、固定步驟，<strong>照表操課、不會臨場判斷</strong>。
+- agent：<strong>會自己規劃步驟、會動手、會看結果再調整</strong>——Claude Code 屬於這一類。
+- 一句收斂：「所以它強在『會做事＋會臨場判斷』，但也因為這樣，<strong>你更需要會驗收</strong>。」</p>
+<p><strong>三個比喻（9′，每個約 3′）</strong>
+- <strong>skill = 可重複的食譜</strong>：「你有一道菜每週都煮，與其每次口頭交代一遍，不如寫成食譜貼在廚房，下次喊一聲『做這道』就好。skill 就是把你常重複下的一串指令，固化成一個可以一鍵叫用的流程。」舉例：把「讀逐字稿→抓重點→產三條社群貼文」存成一個 skill。
+- <strong>MCP = 接資料源的轉接頭</strong>：「Claude Code 預設只看得到你資料夾裡的檔案。但你的真實工作資料常在別的地方——行事曆、資料庫、CRM。MCP 就是轉接頭，插上去之後它就能去那些地方讀資料。」強調：「沒有 MCP，它是『關在資料夾裡』；插上 MCP，它能伸手去外面拿料。」
+- <strong>hook = 自動觸發的開關</strong>：「你不想每次都手動喊，希望『每次存檔就自動幫我檢查一遍』『每次跑完就自動記一筆 log』——hook 就是『當 X 發生，就自動做 Y』的設定。skill 是你主動叫用的食譜，hook 是不用你喊、它自己跳出來做的反射動作。」
+- 三者一句話收束（板書）：「<strong>skill＝我叫它做的固定流程；MCP＝它能拿到的料；hook＝不用我叫、自動發生的事。</strong>」
+- 轉場：「概念聽過就好，真正會懂是『手做一次』。最後 15 分鐘，我們拿你自己的一段真實工作來跑。」</p>
+<h5>15′c — 動手用真實工作跑一次</h5>
+<ul>
+<li>宣布任務：「拿出<strong>你自己真的在處理的一段東西</strong>——一段訪談逐字稿、一份報告、一封要回的長信都可以。我們要請 Claude Code 對它做一件有用的事。」</li>
+<li>帶領節奏（詳見下方「活動與討論造稿」）：放檔案→下一個結構清楚的指令→看它先講計畫→你驗收/放行→看結果→<strong>馬上標記</strong>對一處、錯一處。</li>
+<li>全程口頭提醒兩句心法：</li>
+<li>「指令要像交辦給一個聰明但不認識你工作的新人——<strong>講清楚背景、任務、要什麼格式</strong>。」</li>
+<li>「<strong>何時讓它自己跑、何時你接手</strong>，是今天最重要的判斷力，不是技術。」（連到 adaptive autonomy）</li>
+</ul>
+<h4>② wiki 真實案例 / 引用</h4>
+<ul>
+<li>Case - GTM Engineering at Anthropic — <strong>核心案例，證明零基礎也能上手</strong>。Anthropic 一位<strong>從沒寫過程式</strong>的銷售 Jared Sires，用 Claude Code 把自己的工作流產品化、每天省 2–3 小時，角色從銷售變成 GTM 產品經理。直接打掉學生「我不會 coding 所以這不關我事」的退縮。他的建議也正是 15′c 的活動設計：「打開 Claude Code，<strong>找一個拖慢你的任務</strong>，問 Claude 怎麼做解法。」</li>
+<li>Davenport Mittal 2022 How Generative AI Is Changing Creative Work — 支撐 15′a 開場與全程心法「<strong>人類在前後端</strong>」：生成式 AI 需要人在前端給好指令（prompt）、在後端驗收與微調，prompt engineer 因此成為新職業。用來說明 Claude Code 不是全自動、你要會給指令會驗收。</li>
+<li>prompt engineering — 支撐 15′a 結尾「同一指令不同人結果不一樣」與 15′c 的下指令心法。可引述其中 Midjourney 平均 <strong>7.8 步迭代</strong>、Davenport「人在前後端」、Holmström 2024 把高自動化高擴增定位在 Assisted Augmentation 象限，說明「好結果來自迭代與會問，不是一次到位」。</li>
+<li>adaptive autonomy — 支撐 15′c 心法「<strong>何時讓 agent 自己跑、何時你接手</strong>」。其核心主張：能沿自主刻度<strong>滑動</strong>，往往比固定的高自主或低自主更有利團隊績效。直接對應 Claude Code 的「確認鍵＝人類煞車」設計。</li>
+<li>cognitive offloading — 支撐反思環節：Koh &amp; Doroudi 2023 指出適度卸載釋放認知資源、但過度卸載會「沒真正學到」。用來引導「把雜務交給 AI、把判斷留給自己」的分寸。</li>
+<li>creativity/prompts — 15′c 發指令時的<strong>真實範本</strong>：現成「角色設定＋任務＋輸出格式」三段式 prompt 模板，當「好 prompt 長什麼樣」直接示範。</li>
+<li>Case - GTM Engineering at Anthropic（同檔，lesson 4）— 支撐 15′b skill 概念「工藝在迭代」：CLAFTS 經<strong>數百次系統提示迭代</strong>才符合本人文風，呼應「skill＝可重複的食譜，但食譜要調」。</li>
+</ul>
+<blockquote>
+<p><strong>誠實標註</strong>：Claude Code／MCP／hook 的<strong>工具操作層</strong> wiki 幾乎沒有素材（新工具尚無論文，屬正常）。因此 15′a 的安裝步驟、15′b 三比喻、操作流程一律用<strong>通用內容＋上述 Case 案例</strong>；wiki 引用集中在<strong>理論層</strong>（人機分工、prompt engineering、adaptive autonomy、cognitive offloading）。</p>
+</blockquote>
+<h4>③ 投影片要點 / 板書</h4>
+<p><strong>投影片 1：今天的唯一目標（開場）</strong>
+- 標題：45 分鐘，讓 Claude Code 在你電腦上動起來
+- 一句話：你下指令＋驗收，它執行
+- 結束時你會交出：AI 幫上忙一處 ＋ 出錯一處</p>
+<p><strong>投影片 2：安裝四步（15′a，板書同步打勾）</strong>
+- ① 確認 runtime（Node 等）→ 卡點：command not found
+- ② 安裝 Claude Code CLI → 卡點：權限／網路
+- ③ 登入／授權 → 卡點：金鑰貼錯，金鑰別外流
+- ④ <code>cd</code> 進工作資料夾再啟動 → 它只看得到你站的資料夾</p>
+<p><strong>投影片 3：agent vs chatbot vs workflow（15′b 核心對照表）</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>會動你的檔案？</th>
+<th>會臨場判斷？</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chatbot</td>
+<td>✗</td>
+<td>✗（一問一答）</td>
+<td>一般對話框</td>
+</tr>
+<tr>
+<td>workflow</td>
+<td>✓（固定步驟）</td>
+<td>✗（照表操課）</td>
+<td>自動化腳本</td>
+</tr>
+<tr>
+<td><strong>agent</strong></td>
+<td><strong>✓</strong></td>
+<td><strong>✓（規劃＋調整）</strong></td>
+<td><strong>Claude Code</strong></td>
+</tr>
+<tr>
+<td>- 一句收斂：強在會做事＋會判斷 → 所以你更要會驗收</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>投影片 4：三個比喻（15′b）</strong>
+- skill＝可重複的<strong>食譜</strong>（我主動叫用的固定流程）
+- MCP＝接資料源的<strong>轉接頭</strong>（讓它伸手拿外面的料）
+- hook＝自動觸發的<strong>開關</strong>（當 X 發生就自動做 Y）</p>
+<p><strong>投影片 5：人類在前後端（理論定錨）</strong>
+- Davenport Mittal 2022 How Generative AI Is Changing Creative Work：前端給好指令、後端驗收微調
+- prompt engineering：Midjourney 平均 7.8 步迭代 → 好結果靠迭代
+- adaptive autonomy：沿自主刻度滑動 → 何時放手、何時接手</p>
+<p><strong>投影片 6：零基礎也能上手（15′c 啟動）</strong>
+- Case - GTM Engineering at Anthropic：不會寫程式的銷售，把工作流產品化、每天省 2–3 小時
+- 他的起手式 = 你的活動：找一個拖慢你的任務，問 Claude 怎麼解</p>
+<h4>④ 活動與討論造稿</h4>
+<h5>活動 A：用真實工作跑一次（15′c，手把手）</h5>
+<p><strong>明確步驟（投影同步，老師喊口令、學生跟）</strong>
+1. <strong>放料</strong>：把你帶來的真實檔案（逐字稿／報告／長信）丟進你 <code>cd</code> 的那個資料夾。口令：「確認你站的資料夾裡看得到這個檔。」
+2. <strong>下指令</strong>：用三段式結構下一個指令（套 creativity/prompts 模板）——
+   - 背景：「這是一份我訪談 OO 的逐字稿。」
+   - 任務：「幫我抓出三個主要論點，每個配一句原文佐證。」
+   - 格式：「用條列，每點不超過兩行。」
+3. <strong>看計畫</strong>：它會先說它打算怎麼做。口令：「<strong>先讀它的計畫再放行</strong>，這就是你在驗收。」
+4. <strong>放行／煞車</strong>：合理就放行；它要動你不想動的檔案就按煞車。連到 adaptive autonomy。
+5. <strong>看結果＋標記</strong>：結果出來，<strong>立刻</strong>在學習單寫下「對一處／錯一處」。</p>
+<p><strong>給學生的提問（邊做邊問）</strong>
+- 「它先講的計畫，跟你心裡想的一樣嗎？哪裡不一樣？」
+- 「如果結果不夠好，你會改<strong>指令的哪一段</strong>——背景、任務、還是格式？」（預期答：多數人第一次都漏給背景或沒講格式）</p>
+<p><strong>常見錯誤（老師預先點名，降焦慮）</strong>
+- 站錯資料夾，它看不到檔 → 重新 <code>cd</code>。
+- 指令太籠統（只說「幫我整理一下」）→ 結果發散，回去補背景／格式。
+- 一路狂按 yes 沒看它要做什麼 → 強調煞車的存在。
+- 期待一次到位 → 提醒 prompt engineering 的 7.8 步迭代，「不滿意就再問一次、講更清楚」。</p>
+<h5>活動 B：配對分享與全班收斂（既有討論段落，造稿細化）</h5>
+<p><strong>配對分享（5′）</strong>
+- 口令：「兩人互看螢幕，各自講<strong>一處 AI 幫上忙</strong>、<strong>一處需要你介入修</strong>。」
+- 引導句：「重點不是它多強，是<strong>你在哪裡必須出手</strong>——那就是你不可被取代的判斷力。」</p>
+<p><strong>全班收斂（3′）</strong>
+- 老師收集舉手回報，板書「Claude Code 最容易出錯前三名」，貼上班級工具箱。
+- 預期會出現：站錯資料夾／指令太籠統／它自信地編造（hallucination）。</p>
+<p><strong>反思（2′，寫下）</strong>
+- 既有題目：「如果這是我每週的真實工作，我會不會固定用它？阻礙我的是介面、信任、還是不知道它能做什麼？」
+- 引導扣回理論：用 cognitive offloading 提醒——「把雜務卸給它沒問題，但<strong>判斷與學習的部分要留給自己</strong>，不然你會『沒真正學到』。」</p>
+<p><strong>小作業（既有，再次口頭強調）</strong>
+- 把一段真實工作用 Claude Code 處理，記錄它對／錯各一處，並寫一句「下次我會怎麼改提示」——對應 Case - GTM Engineering at Anthropic 的起手式：從自己的摩擦點開始。</p>
+<hr />
+<h4>連結 / 關係</h4>
+<ul>
+<li><strong>後續模組（先修鏈）</strong>：<a href="M_Claude_Code_%E4%B8%B2%E5%B7%A5%E4%BD%9C%E6%B5%81.html">M Claude Code 串工作流</a>——本模組教「安裝＋第一個指令」，串工作流教「設計 skill、接 MCP、批次產製」。先會這課再上那課。</li>
+<li><strong>放大版</strong>：<a href="M_Vibe_Coding_%E5%81%9A%E5%B0%8F%E5%B7%A5%E5%85%B7.html">M Vibe Coding 做小工具</a>——同一套「描述需求＋驗收＋迭代」心法，從處理文件放大到做出並發布一個能用的小工具。</li>
+<li><strong>背後的不確定性工程</strong>：<a href="M_Harness_Engineering_%E8%88%87%E8%B3%87%E8%A8%8A%E7%86%B5.html">M Harness Engineering 與資訊熵</a>——為什麼「給足 context」這麼重要，用 entropy 把它講透。</li>
+<li><strong>每週輪替的分享場</strong>：<a href="M_%E5%B7%A5%E5%85%B7%E7%AE%B1%E5%88%86%E4%BA%AB.html">M 工具箱分享</a>——把本課做出的成果帶去分享、互評、歸檔成班級工具箱。</li>
+<li><strong>何時放手的判斷</strong>：adaptive autonomy、cognitive offloading——煞車鍵＝人類把關，判斷與學習要留給自己。</li>
+<li><strong>學生自學版</strong>：SP Agentic AI 實作（與 <a href="M_Claude_Code_%E4%B8%B2%E5%B7%A5%E4%BD%9C%E6%B5%81.html">M Claude Code 串工作流</a> 合併的實作軌自學包）。</li>
+</ul>
+<p>回到 <a href="_modules_index.html">_modules index</a></p><p class="sitefoot">2026 EMA — AI 與媒體｜由 <code>tools/build_course_site.py</code> 自教材原始檔產生，更新於 2026-09-04 21:36</p>
+</div>
+</body>
+</html>
